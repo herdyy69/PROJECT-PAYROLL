@@ -1,19 +1,19 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
   <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-    <a class="sidebar-brand brand-logo" href="index.html"><img src="assets/images/logo.svg" alt="logo" /></a>
-    <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
+    <a class="sidebar-brand brand-logo" href="index.html"><img src="{{ asset ('asset/images/logo.svg')}}" alt="logo" /></a>
+    <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="{{ asset ('asset/images/logo-mini.svg')}}" alt="logo" /></a>
   </div>
   <ul class="nav">
     <li class="nav-item profile">
       <div class="profile-desc">
         <div class="profile-pic">
           <div class="count-indicator">
-            <img class="img-xs rounded-circle " src="assets/images/faces/face15.jpg" alt="">
+            <img class="img-xs rounded-circle " src="{{ asset ('asset/images/faces/face15.jpg')}}" alt="">
             <span class="count bg-success"></span>
           </div>
           <div class="profile-name">
-            <h5 class="mb-0 font-weight-normal">HERDYANSAH</h5>
-            <span>SUPER ADMIN</span>
+            <h5 class="mb-0 font-weight-normal">{{ Auth::user()->name }}</h5>
+            <span>{{ Auth::user()->level }}</span>
           </div>
         </div>
       </div>
@@ -22,15 +22,24 @@
       <span class="nav-link">Feature</span>
     </li>
     <li class="nav-item menu-items mb-2">
-      <a class="nav-link" href="index.html">
+      <a class="nav-link" href="{{ url('home') }}">
         <span class="menu-icon">
           <i class="mdi mdi-account"></i>
         </span>
-        <span class="menu-title">KARYAWAN</span>
+        <span class="menu-title ">Home</span>
+      </a>
+    </li>
+    @if (Auth::user()->level == 'Admin')
+    <li class="nav-item menu-items mb-2">
+      <a class="nav-link" href="{{ route('karyawan.index') }}">
+        <span class="menu-icon">
+          <i class="mdi mdi-account"></i>
+        </span>
+        <span class="menu-title ">KARYAWAN</span>
       </a>
     </li>
     <li class="nav-item menu-items mb-2">
-      <a class="nav-link" href="index.html">
+      <a class="nav-link" href="{{ route('jabatan.index') }}">
         <span class="menu-icon">
           <i class="mdi mdi-account-arrow-up"></i>
         </span>
@@ -38,7 +47,7 @@
       </a>
     </li>
     <li class="nav-item menu-items mb-2">
-      <a class="nav-link" href="index.html">
+      <a class="nav-link" href="{{ route('status.index') }}">
         <span class="menu-icon">
           <i class="mdi mdi-account-reactivate"></i>
         </span>
@@ -53,6 +62,7 @@
         <span class="menu-title">LAPORAN</span>
       </a>
     </li>
+    @elseif (Auth::user()->level == 'Super Admin')
     <li class="nav-item menu-items mb-2">
       <a class="nav-link" href="index.html">
         <span class="menu-icon">
@@ -61,6 +71,9 @@
         <span class="menu-title">ADMIN ACCOUNT</span>
       </a>
     </li>
+    @endif
+    
+    
     {{-- <li class="nav-item menu-items">
       <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
         <span class="menu-icon">

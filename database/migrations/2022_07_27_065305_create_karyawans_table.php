@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('no_telepon');
             $table->date('tanggal_masuk');
+            $table->integer('lama_kerja');
 
             $table->unsignedBigInteger('id_jabatan'); 
             $table->foreign('id_jabatan')->references('id')->on('jabatans')

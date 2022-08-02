@@ -7455,7 +7455,7 @@
   --bs-gray-600: #6c757d;
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
-  --bs-gray-900: #212529;
+  --bs-gray-900: #00000;
   --bs-primary: #0090e7;
   --bs-secondary: #e4eaec;
   --bs-success: #00d25b;
@@ -7659,7 +7659,7 @@ kbd {
   padding: 0.2rem 0.4rem;
   font-size: 0.875em;
   color: #fff;
-  background-color: #212529;
+  background-color: #00000;
   border-radius: 0.2rem; }
   kbd kbd {
     padding: 0;
@@ -8763,11 +8763,11 @@ progress {
 .table, .jsgrid .jsgrid-table {
   --bs-table-bg: transparent;
   --bs-table-accent-bg: transparent;
-  --bs-table-striped-color: #212529;
+  --bs-table-striped-color: #00000;
   --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
-  --bs-table-active-color: #212529;
+  --bs-table-active-color: #00000;
   --bs-table-active-bg: rgba(0, 0, 0, 0.1);
-  --bs-table-hover-color: #212529;
+  --bs-table-hover-color: #00000;
   --bs-table-hover-bg: #000000;
   width: 100%;
   margin-bottom: 1rem;
@@ -8893,7 +8893,7 @@ progress {
   border-color: #dfe0e1; }
 
 .table-dark {
-  --bs-table-bg: #212529;
+  --bs-table-bg: #00000;
   --bs-table-striped-bg: #2c3034;
   --bs-table-striped-color: #fff;
   --bs-table-active-bg: #373b3e;
@@ -8967,7 +8967,7 @@ progress {
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1;
-  color: #212529;
+  color: #00000;
   background-color: #2A3038;
   background-clip: padding-box;
   border: 1px solid #2c2e33;
@@ -8994,7 +8994,7 @@ progress {
   .jsgrid .jsgrid-table .jsgrid-filter-row select:focus, .jsgrid .jsgrid-table .jsgrid-filter-row input:focus[type=number], .select2-container--default .select2-selection--single:focus, .select2-container--default .select2-selection--single .select2-search__field:focus, .typeahead:focus,
   .tt-query:focus,
   .tt-hint:focus {
-    color: #212529;
+    color: #00000;
     background-color: #fff;
     border-color: #86b7fe;
     outline: 0;
@@ -9026,7 +9026,7 @@ progress {
     padding: 0.56rem 0.75rem;
     margin: -0.56rem -0.75rem;
     margin-inline-end: 0.75rem;
-    color: #212529;
+    color: #00000;
     background-color: #e9ecef;
     pointer-events: none;
     border-color: inherit;
@@ -9053,7 +9053,7 @@ progress {
     padding: 0.56rem 0.75rem;
     margin: -0.56rem -0.75rem;
     margin-inline-end: 0.75rem;
-    color: #212529;
+    color: #00000;
     background-color: #e9ecef;
     pointer-events: none;
     border-color: inherit;
@@ -9080,7 +9080,7 @@ progress {
   padding: 0.56rem 0;
   margin-bottom: 0;
   line-height: 1;
-  color: #212529;
+  color: #00000;
   background-color: transparent;
   border: solid transparent;
   border-width: 1px 0; }
@@ -9148,7 +9148,7 @@ textarea.form-control-lg {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
+  color: #00000;
   background-color: #fff;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
@@ -9172,7 +9172,7 @@ textarea.form-control-lg {
     background-color: #e9ecef; }
   .form-select:-moz-focusring {
     color: transparent;
-    text-shadow: 0 0 0 #212529; }
+    text-shadow: 0 0 : #00000; }
 
 .form-select-sm {
   padding-top: 0.25rem;
@@ -9443,7 +9443,7 @@ textarea.form-control-lg {
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1;
-  color: #212529;
+  color: #00000;
   text-align: center;
   white-space: nowrap;
   background-color: #e9ecef;
@@ -11280,7 +11280,7 @@ textarea.is-invalid.tt-hint {
   width: 100%;
   padding: 1rem 1.25rem;
   font-size: 1rem;
-  color: #212529;
+  color: #00000;
   text-align: left;
   background-color: #fff;
   border: 0;
@@ -11638,14 +11638,14 @@ textarea.is-invalid.tt-hint {
     text-decoration: none;
     background-color: #f8f9fa; }
   .list-group-item-action:active {
-    color: #212529;
+    color: #00000;
     background-color: #e9ecef; }
 
 .list-group-item {
   position: relative;
   display: block;
   padding: 0.5rem 1rem;
-  color: #212529;
+  color: #00000;
   text-decoration: none;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.125); }
@@ -12353,7 +12353,7 @@ textarea.is-invalid.tt-hint {
 
 .popover-body {
   padding: 1rem 1rem;
-  color: #212529; }
+  color: #00000; }
 
 .carousel {
   position: relative; }
@@ -18299,7 +18299,7 @@ div.tagsinput {
     .jsgrid .table-borderless.jsgrid-table th {
       border: none; }
   .table .table-dark, .jsgrid .jsgrid-table .table-dark {
-    background: #212529; }
+    background: #00000; }
   .table.table-contextual, .jsgrid .table-contextual.jsgrid-table {
     color: #ffffff; }
 

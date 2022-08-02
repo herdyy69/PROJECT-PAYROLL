@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\JabatanController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\StatusController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +18,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.admin');
 });
 
 Auth::routes();
@@ -27,7 +31,9 @@ Route::get('adminx', function () {
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
     Route::get('/', function(){
-        return view('admin.index');
+        return redirect('home');
     });
-//    isi rote
+    Route::resource('karyawan', KaryawanController::class);
+    Route::resource('jabatan', JabatanController::class);
+    Route::resource('status', StatusController::class);
 });
