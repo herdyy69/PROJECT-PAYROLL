@@ -32,14 +32,8 @@
               </div>
             </div>
             <div class="preview-item-content">
-              <p class="nav-link preview-subject mb-1"  href="{{ route('logout') }}" role="button" 
-              onclick="event.preventDefault();
-              document.getElementById('logout-form').submit();">
-              <i class="fas fa-th-large"></i> LOGOUT
-              </p>
-        <form action="{{ route('logout') }}" id="logout-form" method="post">
-           @csrf
-        </form>
+              
+             
             </div>
           </a>
       </li>

@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 
 class HalloController extends Controller
 {
-    public function Getindex()
+    public function index()
     {
         $status = status::all();
-        return view('status.index', compact('status'));
+        return view('status', compact('status'));
     }
+   
+   
 }

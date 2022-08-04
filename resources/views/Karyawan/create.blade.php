@@ -7,7 +7,7 @@
         <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title mt-4">Tambah Data Karyawan</h4>
+                        <h4 class="card-title mt-4">TAMBAH DATA KARYAWAN</h4>
                     </div>
                   <div class="card-body">
                     <form action="{{ route('karyawan.store') }}" method="post">
@@ -26,7 +26,7 @@
                       <div class="form-group">
                         <label for="nama_karyawan" class="col-form-label">NAMA KARYAWAN</label>
                         <input type="text" name="nama_karyawan" class="form-control @error('nama_karyawan') is-invalid @enderror" id="nama_karyawan" >
-                          @error('nama_karyawan')
+                          @error('nama_karyawan', )
                           <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
                           </span>

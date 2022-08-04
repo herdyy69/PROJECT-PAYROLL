@@ -25,4 +25,8 @@ class karyawan extends Model
     {
         return $this->belongsTo(status::class, 'id_status');
     }
+    public function laporan()
+    {
+        return $this->hasMany(laporan::class, 'id_karyawan');
+    }
 }

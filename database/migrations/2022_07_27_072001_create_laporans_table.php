@@ -19,7 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_karyawan'); 
             $table->foreign('id_karyawan')->references('id')->on('karyawans')
             ->onDelete('CASCADE');
-
+            $table->integer('bonus_lama_kerja');
             $table->integer('hari_izin');
             $table->integer('hari_sakit');
             $table->integer('hari_alfa');
@@ -27,6 +27,7 @@ return new class extends Migration
             $table->integer('asuransi');
             $table->integer('total_gaji');
             $table->date('tanggal_penggajian');
+            $table->enum('status', ['SUKSES', 'GAGAL']);
             $table->timestamps();
         });
     }

@@ -9,7 +9,7 @@
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title mt-4">Edit Data Karyawan</h4>
+                    <h4 class="card-title mt-4">DATA KARYAWAN</h4>
                 </div>
               <div class="card-body" >
                 <input type="hidden" value="{{ Auth::user()->id }}" name="id_admin" id="">
@@ -107,8 +107,19 @@
                                      @enderror
                             {{-- end tanggal masuk --}}
                         </div>
+                        <div class="form-group"> 
+                            {{-- tanggal masuk --}}
+                            <label for="lama_kerja" class="col-form-label">LAMA KERJA</label>
+                            <input type="text" name="lama_kerja" value="{{ $karyawan->lama_kerja }} Tahun" class="form-control @error('lama_kerja') is-invalid @enderror" id="Nama-Karyawan" >
+                                    @error('tanggal_masuk')
+                                    <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                    </span>
+                                     @enderror
+                            {{-- end tanggal masuk --}}
+                        </div>
                         <div class="form-group">
-                            <label class="form-label">id_jabatan</label>
+                            <label class="form-label">JABATAN</label>
                                     <select class="form-control @error('id_jabatan') is-invalid @enderror" name="id_jabatan">
                                       @foreach ($jabatan as $data)
                                       <option value="{{ $data->id }}" {{ $data->id == $karyawan->id_jabatan ? 'selected' : '' }}>{{ $data->nama_jabatan }}</option>
@@ -122,7 +133,7 @@
                           </div>
   
                           <div class="form-group">
-                            <label class="form-label">id_status</label>
+                            <label class="form-label">STATUS KERJA</label>
                                     <select class="form-control @error('id_status') is-invalid @enderror" name="id_status">
                                       @foreach ($status as $data)
                                       <option value="{{ $data->id }}" {{ $data->id == $karyawan->id_status ? 'selected' : '' }}>{{ $data->jenis_status }}</option>

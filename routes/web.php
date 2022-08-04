@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\StatusController;
+use App\Http\Controllers\HalloController;
+use App\Http\Controllers\LaporanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,4 +38,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
     Route::resource('karyawan', KaryawanController::class);
     Route::resource('jabatan', JabatanController::class);
     Route::resource('status', StatusController::class);
+    Route::resource('laporan', LaporanController::class);
+    Route::get('laporan/{id}', [LaporanController::class, 'show_s']);
+    
 });
+
+    Route::get('/hallo', [HalloController::class, 'index']);
