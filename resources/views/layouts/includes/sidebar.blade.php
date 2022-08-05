@@ -55,7 +55,7 @@
       </a>
     </li>
     <li class="nav-item menu-items mb-2">
-      <a class="nav-link" href="index.html">
+      <a class="nav-link" href="{{ route('laporan.index') }}">
         <span class="menu-icon">
           <i class="mdi mdi-file-chart"></i>
         </span>

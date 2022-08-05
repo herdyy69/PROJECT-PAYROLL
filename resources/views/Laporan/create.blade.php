@@ -13,21 +13,23 @@
                     
                     <div class="form-group">
                         <label class="form-label">BUAT LAPORAN</label>
-                        @foreach ($karyawan as $data)
+                        
                                 <select class="form-control id="nama_karyawan" @error('nama_karyawan') is-invalid @enderror" name="nama_karyawan">
                                   {{-- apabila tidak ada data makan akan tampil tidak ada data --}}
+                                 @foreach ($karyawan as $data)
                                   @if ($karyawan->count() == 0)
                                   <option value="">Tidak Ada Data</option>
                                   @else
                                   <option value="{{ $data->id }}">{{ $data->nama_karyawan }}</option>
                                   @endif
+                                @endforeach
                                 </select>
                                 <form action="{{ route('laporan.show', $data->id) }}" method="post">
                                     @csrf
                                     @method('GET')
                                  <button type="submit" class="btn btn-primary me-2 MT-2">PROSES</button>
                                 </form>
-                                @endforeach
+                                
                                 @error('nama_karyawan')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

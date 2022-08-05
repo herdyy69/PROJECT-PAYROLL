@@ -53,9 +53,7 @@ class LaporanController extends Controller
             'hari_izin' => 'required',
             'hari_sakit' => 'required',
             'hari_alfa' => 'required',
-            'hari_kerja' => 'required',
             'asuransi' => 'required',
-            'total_gaji' => 'required',
             'tanggal_penggajian' => 'required',
             'status' => 'required',
         ]);
@@ -63,40 +61,33 @@ class LaporanController extends Controller
         // if hari alfa
         if ($request->hari_alfa > 0 && $request->hari_alfa < 2) {
             $potongan_alfa = 100000;
-        } 
-        elseif ($request->hari_alfa > 1 && $request->hari_alfa < 3) {
+        } elseif ($request->hari_alfa > 1 && $request->hari_alfa < 3) {
             $potongan_alfa = 150000;
-        }
-        elseif ($request->hari_alfa > 2 && $request->hari_alfa < 4) {
+        } elseif ($request->hari_alfa > 2 && $request->hari_alfa < 4) {
             $potongan_alfa = 200000;
-        }
-        elseif ($request->hari_alfa > 3 && $request->hari_alfa < 5) {
+        } elseif ($request->hari_alfa > 3 && $request->hari_alfa < 5) {
             $potongan_alfa = 250000;
-        }
-        elseif ($request->hari_alfa > 4 && $request->hari_alfa < 6) {
+        } elseif ($request->hari_alfa > 4 && $request->hari_alfa < 6) {
             $potongan_alfa = 300000;
-        }
-        elseif ($request->hari_alfa > 5 && $request->hari_alfa < 7) {
+        } elseif ($request->hari_alfa > 5 && $request->hari_alfa < 7) {
             $potongan_alfa = 350000;
+        } else {
+            $potongan_alfa = 0;
         }
-        else {
-        
-        }
-
+        $value_js = $request->value_js;
         $laporan = new laporan();
         $laporan->id_karyawan = $request->id_karyawan;
         $laporan->bonus_lama_kerja = $request->bonus_lama_kerja;
         $laporan->hari_izin = $request->hari_izin;
         $laporan->hari_sakit = $request->hari_sakit;
         $laporan->hari_alfa = $request->hari_alfa;
-        $laporan->hari_kerja = $request->hari_kerja;
+        $laporan->hari_kerja = $request->hari_kerja - $request->hari_izin - $request->hari_sakit - $request->hari_alfa;
         $laporan->asuransi = $request->asuransi;
-        $laporan->total_gaji = $request->total_gaji + $request->bonus_lama_kerja - ($potongan_alfa - $request->asuransi);
+        $laporan->total_gaji = $request->total_gaji + $request->bonus_lama_kerja + $value_js - $potongan_alfa - $request->asuransi;
         $laporan->tanggal_penggajian = $request->tanggal_penggajian;
         $laporan->status = $request->status;
         $laporan->save();
-        return redirect()->route('laporan.index')
-            ->with('success', 'Data berhasil dibuat!');
+        return redirect()->route('laporan.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -110,7 +101,21 @@ class LaporanController extends Controller
         $karyawan = karyawan::findOrFail($id);
         $jabatan = jabatan::all();
         $status = status::all();
-        return view('laporan.detail', compact('karyawan','jabatan', 'status'));
+        return view('laporan.detail', compact('karyawan', 'jabatan', 'status'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showJoin($id)
+    {
+        $karyawan = karyawan::findOrFail($id);
+        $jabatan = jabatan::all();
+        $status = status::all();
+        return view('laporan.show', compact('karyawan', 'jabatan', 'status'));
     }
 
     /**
@@ -124,7 +129,7 @@ class LaporanController extends Controller
         $karyawan = karyawan::findOrFail($id);
         $jabatan = jabatan::all();
         $status = status::all();
-        return view('laporan.detail', compact('karyawan','jabatan', 'status'));
+        return view('laporan.detail', compact('karyawan', 'jabatan', 'status'));
     }
 
     /**

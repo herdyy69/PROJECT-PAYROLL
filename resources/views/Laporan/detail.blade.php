@@ -13,6 +13,11 @@
                     <form action="{{ route('laporan.store') }}" method="post">
                     @csrf
                     <input type="hidden" name="id_karyawan" value="{{ $karyawan->id }}">
+                    <input type="hidden" name="value_js" value="{{ $value_js = $karyawan->jabatan->gaji_pokok + $karyawan->jabatan->uang_makan + $karyawan->jabatan->uang_transportasi + $karyawan->jabatan->bonus_jabatan + $karyawan->status->bonus_status }}">
+                    <input type="hidden" name="tanggal_penggajian" value="{{ $date_now = date('Y-m-d') }}">
+                    {{-- jumlah hari dalam satu bulan --}}
+                    <input type="hidden" name="hari_kerja" value="{{ $jumlah_hari = cal_days_in_month(CAL_GREGORIAN, date('m'), date('Y')) }}">
+                    {{-- jumlah hari dalam satu bulan --}}
                     <div class="form-group">
                         <label class="form-label">NAMA KARYAWAN</label>
                         <input type="text" name="nama_karyawan" value="{{ $karyawan->nama_karyawan }}" class="form-control @error('nama_karyawan') is-invalid @enderror" id="Nama-Karyawan" >

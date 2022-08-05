@@ -39,8 +39,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
     Route::resource('jabatan', JabatanController::class);
     Route::resource('status', StatusController::class);
     Route::resource('laporan', LaporanController::class);
-    Route::get('laporan/{id}', [LaporanController::class, 'show_s']);
-    
+    Route::get('laporan/show/{id}', [LaporanController::class, 'showJoin']);
 });
 
     Route::get('/hallo', [HalloController::class, 'index']);
