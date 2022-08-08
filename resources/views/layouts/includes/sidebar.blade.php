@@ -1,18 +1,25 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
   <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-    <a class="sidebar-brand brand-logo" href="index.html"><img src="{{ asset ('asset/images/logo.svg')}}" alt="logo" /></a>
-    <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="{{ asset ('asset/images/logo-mini.svg')}}" alt="logo" /></a>
+    <style>
+      .brand-logo, .brand-logo-mini {
+        font-family: 'Cinzel', serif;
+        text-decoration: none;
+      }
+    </style>
+    <a class="sidebar-brand brand-logo" style="font-size: 1.3em; color: white" href="index.html">PRIMA RASA ABADI</a>
+    <a class="sidebar-brand brand-logo-mini" style="font-size: 1.1em; color: white" href="index.html">PRA</a>
   </div>
   <ul class="nav">
     <li class="nav-item profile">
       <div class="profile-desc">
         <div class="profile-pic">
           <div class="count-indicator">
-            <img class="img-xs rounded-circle " src="{{ asset ('asset/images/faces/face15.jpg')}}" alt="">
+            <img class="img-xs rounded-circle"  src="{{ asset ('asset/images/faces/face15.jpg')}}" alt="">
             <span class="count bg-success"></span>
           </div>
           <div class="profile-name">
-            <h5 class="mb-0 font-weight-normal">{{ Auth::user()->name }}</h5>
+            <h5 class="mb-0 font-weight-normal">
+              {{ Auth::user()->name }}</h5>
             <span>{{ Auth::user()->level }}</span>
           </div>
         </div>
@@ -64,11 +71,19 @@
     </li>
     @elseif (Auth::user()->level == 'Super Admin')
     <li class="nav-item menu-items mb-2">
-      <a class="nav-link" href="index.html">
+      <a class="nav-link" href="{{ route('akun.index') }}">
         <span class="menu-icon">
           <i class="mdi mdi-account-circle"></i>
         </span>
         <span class="menu-title">ADMIN ACCOUNT</span>
+      </a>
+    </li>
+    <li class="nav-item menu-items mb-2">
+      <a class="nav-link" href="{{ route('laporan.index') }}">
+        <span class="menu-icon">
+          <i class="mdi mdi-file-chart"></i>
+        </span>
+        <span class="menu-title">LAPORAN</span>
       </a>
     </li>
     @endif

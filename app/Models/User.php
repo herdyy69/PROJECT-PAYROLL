@@ -23,6 +23,7 @@ class User extends Authenticatable
         'email',
         'password',
         'level',
+        'foto',
     ];
 
     /**
@@ -44,7 +45,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function User(){
+    public function User()
+    {
         return $this->hasMany(admin::class, 'id_admin');
+    }
+
+    public function image()
+    {
+        if ($this->foto && file_exists(public_path('images/akun/' . $this->foto))) {
+            return asset('images/akun/' . $this->foto);
+        } else {
+            return asset('images/no_images.jpg');
+        }
+    }
+    public function deleteimage()
+    {
+        if ($this->foto && file_exists(public_path('images/akun/' . $this->foto))) {
+            return unlink(public_path('images/akun/' . $this->foto));
+        }
     }
 }

@@ -98,10 +98,11 @@ class LaporanController extends Controller
      */
     public function show($id)
     {
-        $karyawan = karyawan::findOrFail($id);
+        $karyawan = karyawan::all();
         $jabatan = jabatan::all();
         $status = status::all();
-        return view('laporan.detail', compact('karyawan', 'jabatan', 'status'));
+        $laporan = laporan::findOrFail($id);
+        return view('laporan.show', compact('karyawan', 'jabatan', 'status', 'laporan'));
     }
 
     /**
@@ -110,23 +111,11 @@ class LaporanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function showJoin($id)
-    {
-        $karyawan = karyawan::findOrFail($id);
-        $jabatan = jabatan::all();
-        $status = status::all();
-        return view('laporan.show', compact('karyawan', 'jabatan', 'status'));
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show_s($id)
+    public function postJoin(Request $request)
     {
-        $karyawan = karyawan::findOrFail($id);
+        $a = $request->nama_karyawan;
+        $karyawan = karyawan::where('id', '=', $a)->first();
         $jabatan = jabatan::all();
         $status = status::all();
         return view('laporan.detail', compact('karyawan', 'jabatan', 'status'));

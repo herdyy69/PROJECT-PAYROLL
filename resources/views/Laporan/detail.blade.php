@@ -49,13 +49,14 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">BONUS LAMA KERJA</label>
                         <div>
                             <div class="row">
                                 <div class="col-md-2">
+                                    <label class="form-label">LAMA KERJA</label>
                                     <input type="text" name="lama_kerja" value="{{ $karyawan->lama_kerja }} TAHUN" class="form-control @error('lama_kerja') is-invalid @enderror" id="lama_kerja" >
                                 </div>
                                 <div class="col-md-10">
+                                    <label class="form-label">BONUS LAMA KERJA</label>
                                     <input type="number" name="bonus_lama_kerja" value="" class="form-control @error('lama_kerjaa') is-invalid @enderror" id="lama_kerjaa" >
                                  @error('lama_kerjaa')
                                     <span class="invalid-feedback" role="alert">
@@ -119,7 +120,7 @@
                     <div class="form-group">
                         <label class="form-label">ASURANSI</label>
                         <div>
-                                <input type="text" name="asuransi" value="" class="form-control @error('asuransi') is-invalid @enderror" id="asuransi" >
+                                <input type="number" name="asuransi" value="" class="form-control @error('asuransi') is-invalid @enderror" id="asuransi" >
                         </div>
                                 @error('asuransi')
                                     <span class="invalid-feedback" role="alert">

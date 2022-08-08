@@ -7,10 +7,15 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    DATA JABATAN
+                    
+                    @if (Auth::user()->level == 'Admin')
+                    RIWAYAT LAPORAN
                     <a href="{{ route('laporan.create') }}" class="btn btn-md btn-primary btn-icon-upload" style="float: right; margin-left: 1rem;">
                         <span class="">Tambah Laporan</span>
                     </a>
+                    @else
+                    RIWAYAT LAPORAN
+                    @endif
                     </div>
                 <div class="card-body">
                     @if (session('status'))
@@ -43,18 +48,22 @@
                                                 <form action="{{ route('laporan.destroy', $data->id) }}" method="post">
                                                     @csrf
                                                     @method('delete')
-                                                    <a href="{{ route('laporan.edit', $data->id) }}"
-                                                        class="btn btn-sm btn-outline-success">
-                                                        Edit
-                                                    </a> |
+                                                    @if (Auth::user()->level == 'Admin')
                                                     <a href="{{ route('laporan.show', $data->id) }}"
                                                         class="btn btn-sm btn-outline-warning">
                                                         Show
                                                     </a> |
-                                                    <button type="submit" class="btn btn-sm btn-outline-danger"
+                                                        <button type="submit" class="btn btn-sm btn-outline-danger"
                                                         onclick="return confirm('Yakin ingin menghapus data ini?')">
                                                         Delete
                                                     </button>
+                                                    @else
+                                                    <a href="{{ route('laporan.show', $data->id) }}"
+                                                        class="btn btn-sm btn-outline-warning">
+                                                        Show
+                                                    </a> 
+                                                    @endif
+                                                    
                                                 </form>
                                             </td>
                                         </tr>
@@ -64,6 +73,8 @@
                                         <td colspan="5" class="text-center">Tidak ada data</td>
                                     </tr>
                                 @endif
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

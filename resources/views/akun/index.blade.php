@@ -7,8 +7,8 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    DATA karyawan
-                    <a href="{{ route('karyawan.create') }}" class="btn btn-md btn-primary btn-icon-upload" style="float: right; margin-left: 1rem;">
+                    DATA AKUN ADMIN
+                    <a href="{{ route('akun.create') }}" class="btn btn-md btn-primary btn-icon-upload" style="float: right; margin-left: 1rem;">
                         <span class="">Tambah Data</span>
                     </a>
                     </div>
@@ -19,49 +19,47 @@
                         </div>
                     @endif
 
-                    <div class="">
-                        <table class="table table-hover align-middle " id="dataTable">
+                    <div class="table-responsive">
+                        <table class="table align-middle" id="dataTable">
                             <thead>
                                 <tr>
                                     <th>NO</th>
-                                    <th>NIK</th>
-                                    <th>NAMA KARYAWAN</th>
-                                    <th>JENIS KELAMIN</th>
-                                    {{-- <th>NO TELEPON</th> --}}
-                                    <th>JABATAN</th>
-                                    <th>STATUS</th>
-                                    {{-- <th>LAMA KERJA</th> --}}
+                                    <th>NAMA ADMIN</th>
+                                    <th>FOTO</th>
+                                    <th>USERNAME</th>
+                                    <th>EMAIL</th>
+                                    <th>LEVEL</th>
                                     <th class="text-center">AKSI</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @if ($karyawan->count() > 0)
+                                @if ($users->count() > 0)
                                     @php $no = 1; @endphp
-                                    @foreach ($karyawan as $data)
+                                    @foreach ($users as $data)
                                         <tr>
                                             <td>{{ $no++ }}</td>
-                                            <td>{{ $data->nik }}</td>
-                                            <td>{{ $data->nama_karyawan }}</td>
-                                            <td>{{ $data->jenis_kelamin }}</td>
-                                            {{-- <td>{{ $data->no_telepon }}</td> --}}
-                                            <td>{{ $data->jabatan->nama_jabatan }}</td>
-                                            <td>{{ $data->status->jenis_status }}</td>
-                                            {{-- <td>{{ $data->lama_kerja }}</td> --}}
+                                            <td>{{ $data->name }}</td>
+                                            <td>
+                                                @if ($data->foto)
+                                                    <img src="{{ asset('asset/img/foto/' . $data->foto) }}" alt="{{ $data->name }}" width="100px">
+                                                @else
+                                                    <img src="{{ asset('asset/img/foto/default.png') }}" alt="{{ $data->name }}" width="100px">
+                                                @endif
+                                            <td>{{ $data->username }}</td>
+                                            <td>{{ $data->email }}</td>
+                                            <td>{{ $data->level }}</td>
+
                                             <td class="text-center">
-                                                <form action="{{ route('karyawan.destroy', $data->id) }}" method="post">
+                                                <form action="{{ route('akun.destroy', $data->id) }}" method="post">
                                                     @csrf
                                                     @method('delete')
-                                                    <a href="{{ route('karyawan.edit', $data->id) }}"
+                                                    <a href="{{ route('akun.edit', $data->id) }}"
                                                         class="btn btn-sm btn-outline-success">
                                                         Edit
-                                                    </a>
-                                                    <a href="{{ route('karyawan.show', $data->id) }}"
-                                                        class="btn btn-sm btn-outline-warning">
-                                                        Show
-                                                    </a> 
+                                                    </a> |
                                                     <button type="submit" class="btn btn-sm btn-outline-danger"
                                                         onclick="return confirm('Yakin ingin menghapus data ini?')">
-                                                        Hapus
+                                                        Delete
                                                     </button>
                                                 </form>
                                             </td>
@@ -69,7 +67,9 @@
                                     @endforeach
                                 @else
                                     <tr>
-                                        <td colspan="7" class="text-center">Tidak ada data</td>
+                                        <td colspan="7" class="text-center">
+                                            <h5>DATA TIDAK ADA</h5>
+                                        </td>
                                     </tr>
                                 @endif
                             </tbody>
@@ -77,7 +77,6 @@
                     </div>
                 </div>
             </div>
-            
         </div>
     </div>
 </div>

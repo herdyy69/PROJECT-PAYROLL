@@ -10,7 +10,16 @@
                 <div class="row">
                   <div class="col-8 col-sm-12 col-xl-8 my-auto">
                     <div class="d-flex d-sm-block d-md-flex align-items-center">
-                      <h2 class="mb-0">100</h2>
+                      @php
+                      $total = 0;
+                          $karyawan->count();
+                          $total += $karyawan->count();
+                      @endphp
+                      @if ($karyawan->count() > 0)
+                          <h2 class="mb-0">{{ $total }}</h2>
+                      @else
+                      <h2 class="mb-0">0</h2>
+                      @endif
                       <p class="text-success ms-2 mb-0 font-weight-medium">Orang</p>
                     </div>
                   </div>
