@@ -10,7 +10,7 @@
                         <h4 class="card-title mt-4">TAMBAH AKUN ADMIN</h4>
                     </div>
                   <div class="card-body">
-                    <form method="POST" action="{{ route('akun.store') }}">
+                    <form method="POST" action="{{ route('akun.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="foto" class="col-form-label">FOTO</label>

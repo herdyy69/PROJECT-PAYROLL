@@ -41,7 +41,7 @@
                                             <td>{{ $data->name }}</td>
                                             <td>
                                                 @if ($data->foto)
-                                                    <img src="{{ asset('asset/img/foto/' . $data->foto) }}" alt="{{ $data->name }}" width="100px">
+                                                    <img src="{{ asset('images/akun/' . $data->foto) }}" alt="{{ $data->name }}" width="100px">
                                                 @else
                                                     <img src="{{ asset('asset/img/foto/default.png') }}" alt="{{ $data->name }}" width="100px">
                                                 @endif
@@ -53,10 +53,6 @@
                                                 <form action="{{ route('akun.destroy', $data->id) }}" method="post">
                                                     @csrf
                                                     @method('delete')
-                                                    <a href="{{ route('akun.edit', $data->id) }}"
-                                                        class="btn btn-sm btn-outline-success">
-                                                        Edit
-                                                    </a> |
                                                     <button type="submit" class="btn btn-sm btn-outline-danger"
                                                         onclick="return confirm('Yakin ingin menghapus data ini?')">
                                                         Delete

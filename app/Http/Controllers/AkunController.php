@@ -57,7 +57,6 @@ class AkunController extends Controller
             $image->move('images/akun/', $name);
             $akun->foto = $name;
         }
-        $akun->foto = $request->foto;
         $akun->save();
         return redirect()->route('akun.create')
             ->with('success', 'Data berhasil dibuat!');

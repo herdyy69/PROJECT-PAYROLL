@@ -4,7 +4,44 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Corona Admin</title>
+    <link rel="icon" type="image/png" href="{{ asset('images/logo/Walls.png') }}" />
+    <title>
+      @if (Route::is('karyawan.index') )
+        Data karyawan
+      @elseif (Route::is('karyawan.create') )
+        Tambah Data karyawan
+      @elseif (Route::is('karyawan.edit') )
+        Edit Data karyawan
+      @elseif (Route::is('karyawan.show') )
+        Lihat Data karyawan
+        @elseif(Route::is('jabatan.index') )
+        Data jabatan
+        @elseif(Route::is('jabatan.create') )
+        Tambah Data jabatan
+        @elseif(Route::is('jabatan.edit') )
+        Edit Data jabatan
+        @elseif(Route::is('jabatan.show') )
+        Lihat Data jabatan
+        @elseif(Route::is('status.index') )
+        Data status
+        @elseif(Route::is('status.create') )
+        Tambah Data status
+        @elseif(Route::is('status.edit') )
+        Edit Data status
+        @elseif(Route::is('status.show') )
+        Lihat Data status
+        @elseif(Route::is('laporan.index') )
+        Data Laporan
+        @elseif(Route::is('laporan.create') )
+        Tambah Laporan
+        @elseif(Route::is('laporan.postJoin') )
+        Tambah Laporan
+        @elseif(Route::is('laporan.show') )
+        Lihat Laporan
+      @else
+          PRIMA RASA ABADI
+      @endif
+    </title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Oswald&display=swap" rel="stylesheet">
@@ -25,23 +62,11 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{ asset ('asset/css/style.css')}}">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="{{ asset ('asset/images/favicon.png')}}" />
     <style>
-      body{
-        background-color: red;
-      }
     </style>
   </head>
   <body>
     <div class="container-scroller">
-      <div class="row p-0 m-0 proBanner" id="proBanner">
-        <div class="col-md-12 p-0 m-0">
-          <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
-            <div class="ps-lg-1">
-            </div>
-          </div>
-        </div>
-      </div>
       <!-- partial:partials/_sidebar.html -->
         @include('layouts.includes.sidebar')
       <!-- partial -->

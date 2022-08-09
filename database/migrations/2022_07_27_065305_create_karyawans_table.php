@@ -16,10 +16,7 @@ return new class extends Migration
         Schema::create('karyawans', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('id_admin'); 
-            $table->foreign('id_admin')->references('id')->on('users')
-            ->onDelete('CASCADE');
-
+            $table->string('createdby');
             $table->integer('nik');
             $table->string('nama_karyawan');
             $table->string('tempat_lahir');
@@ -31,13 +28,13 @@ return new class extends Migration
             $table->date('tanggal_masuk');
             $table->integer('lama_kerja');
 
-            $table->unsignedBigInteger('id_jabatan'); 
+            $table->unsignedBigInteger('id_jabatan');
             $table->foreign('id_jabatan')->references('id')->on('jabatans')
-            ->onDelete('CASCADE');
+                ->onDelete('CASCADE');
 
-            $table->unsignedBigInteger('id_status'); 
+            $table->unsignedBigInteger('id_status');
             $table->foreign('id_status')->references('id')->on('statuses')
-            ->onDelete('CASCADE');
+                ->onDelete('CASCADE');
 
             $table->timestamps();
         });

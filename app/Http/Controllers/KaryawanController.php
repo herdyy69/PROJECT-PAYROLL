@@ -19,7 +19,7 @@ class KaryawanController extends Controller
      */
     public function index()
     {
-            $tahun = "hallo";
+        $tahun = "hallo";
         $karyawan = karyawan::all();
         return view('Karyawan.index', compact('karyawan', 'tahun'));
     }
@@ -46,7 +46,7 @@ class KaryawanController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'id_admin' => 'required',
+            'createdby' => 'required',
             'nik' => 'required',
             'nama_karyawan' => 'required',
             'tempat_lahir' => 'required',
@@ -61,7 +61,7 @@ class KaryawanController extends Controller
         ]);
 
         $karyawan = new karyawan();
-        $karyawan->id_admin = $request->id_admin;
+        $karyawan->createdby = $request->createdby;
         $karyawan->nik = $request->nik;
         $karyawan->nama_karyawan = $request->nama_karyawan;
         $karyawan->tempat_lahir = $request->tempat_lahir;
@@ -93,7 +93,7 @@ class KaryawanController extends Controller
         $jabatan = jabatan::all();
         $status = status::all();
         $admin = User::all();
-        return view('karyawan.show', compact('karyawan','jabatan', 'status', 'admin'));
+        return view('karyawan.show', compact('karyawan', 'jabatan', 'status', 'admin'));
     }
 
     /**
@@ -121,7 +121,7 @@ class KaryawanController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'id_admin' => 'required',
+            'createdby' => 'required',
             'nik' => 'required',
             'nama_karyawan' => 'required',
             'tempat_lahir' => 'required',
@@ -136,7 +136,7 @@ class KaryawanController extends Controller
         ]);
 
         $karyawan = karyawan::findOrFail($id);
-        $karyawan->id_admin = $request->id_admin;
+        $karyawan->createdby = $request->createdby;
         $karyawan->nik = $request->nik;
         $karyawan->nama_karyawan = $request->nama_karyawan;
         $karyawan->tempat_lahir = $request->tempat_lahir;

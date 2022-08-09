@@ -19895,8 +19895,8 @@ div.tagsinput {
 /* === Landing screens === */
 /* Auth */
 .auth.login-bg {
-  background: url("../images/auth/Login_bg.jpg");
-  background-size: cover; }
+ background-color: #191c24;
+}
 
 .auth .login-half-bg {
   background: url("../images/auth/login-bg.jpg");

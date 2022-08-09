@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\karyawan;
-
+use App\Models\laporan;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -26,6 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $karyawan = Karyawan::all();
-        return view('home', compact('karyawan'));
+        $laporan = Laporan::all();
+        return view('home', compact('karyawan', 'laporan'));
     }
 }

@@ -13,7 +13,7 @@
                 <form action="{{ route('karyawan.update', $karyawan->id) }}" method="post">
                 @csrf
                 @method('put')
-                <input type="hidden" value="{{ Auth::user()->id }}" name="id_admin" id="">
+                <input type="hidden" value="{{ Auth::user()->name }}" name="createdby" id="">
                   <div class="form-group">
                     <label for="nik" class="col-form-label">NIK</label>
                     <input type="text" name="nik" value="{{ $karyawan->nik }}" class="form-control @error('nik') is-invalid @enderror" id="Nama-Karyawan" >

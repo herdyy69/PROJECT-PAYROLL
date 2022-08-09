@@ -62,8 +62,8 @@
                                                         class="btn btn-sm btn-outline-warning">
                                                         Show
                                                     </a> 
-                                                    @endif
                                                     
+                                                    @endif
                                                 </form>
                                             </td>
                                         </tr>

@@ -12,7 +12,7 @@
                   <div class="card-body">
                     <form action="{{ route('karyawan.store') }}" method="post">
                     @csrf
-                        <input type="hidden" value="{{ Auth::user()->id }}" name="id_admin" id="">
+                        <input type="hidden" value="{{ Auth::user()->name }}" name="createdby" id="">
                       <div class="form-group">
                         <label for="nik" class="col-form-label">NIK</label>
                         <input type="text" name="nik" class="form-control @error('nik') is-invalid @enderror" id="nik" >

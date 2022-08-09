@@ -38,7 +38,16 @@
                 <div class="row">
                   <div class="col-8 col-sm-12 col-xl-8 my-auto">
                     <div class="d-flex d-sm-block d-md-flex align-items-center">
-                      <h2 class="mb-0">100</h2>
+                      @php
+                      $total = 0;
+                          $laporan->count();
+                          $total += $laporan->count();
+                      @endphp
+                      @if ($laporan->count() > 0)
+                          <h2 class="mb-0">{{ $total }}</h2>
+                      @else
+                      <h2 class="mb-0">0</h2>
+                      @endif
                       <p class="text-success ms-2 mb-0 font-weight-medium">Laporan</p>
                     </div>
                   </div>
@@ -55,14 +64,13 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">{{ __('News') }}</div>
-
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
-                    {{ __('You are logged in!') }}
+                    Coming Soon
                 </div>
             </div>
         </div>

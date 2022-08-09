@@ -7,6 +7,7 @@ use App\Models\status;
 use App\Models\karyawan;
 use App\Models\jabatan;
 use App\Models\laporan;
+use PDF;
 
 class LaporanController extends Controller
 {
@@ -23,7 +24,6 @@ class LaporanController extends Controller
         $laporan = laporan::all();
         return view('laporan.index', compact('status', 'karyawan', 'jabatan', 'laporan'));
     }
-
 
     /**
      * Show the form for creating a new resource.
